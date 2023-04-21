@@ -1,0 +1,9 @@
+[{
+  "name": "Rails on Docker",
+  "description": {
+    "fr": "Un projet Ruby on Rails utilisant Docker & Gitlab CI/CD",
+    "en": "A Ruby on Rails project using Docker & Gitlab CI/CD"
+  },
+  "url": "https://gitlab.com/soykje/rails-on-docker",
+  "date": "2019-07-24"
+}]

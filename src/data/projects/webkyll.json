@@ -1,0 +1,9 @@
+[{
+  "name": "Webkyll",
+  "description": {
+    "fr": "Un générateur de sites statiques basé sur Jekyll & Webpack",
+    "en": "A static site generator based on Jekyll & Webpack"
+  },
+  "url": "https://gitlab.com/soykje/webkyll",
+  "date": "2019-07-12"
+}]

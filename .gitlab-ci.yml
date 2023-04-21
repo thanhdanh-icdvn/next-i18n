@@ -1,0 +1,33 @@
+image: node:lts
+
+cache:
+  paths:
+    - node_modules/
+
+pages:
+  before_script:
+    # Clean 'public' directory
+    - find public -mindepth 1 -maxdepth 1 ! -name 'fonts' -type d | xargs rm -rf
+    - find public -type f -regex '.*\.\(html\|gz\)$' | xargs rm -rf
+    # Install packages
+    - npm install
+  script:
+    # Build application and move content to 'public' directory
+    - npm run publish
+    # We need a last cleanup as mv command doesn't allow us to merge directories
+    - find public -mindepth 1 -maxdepth 1 -type d | xargs rm -rf
+    # We need to move and rename 404 file to make it work properly
+    - mv out/404/index.html out/404.html
+    - rm -d out/404
+    # We copy output inside expected 'public' directory
+    - mv out/* public
+  after_script:
+    # Pre-compressing 'public' directory content
+    - find public -type f -regex '.*\.\(html\|js\|css\|json\|xml\|txt\|text\)$' -exec gzip -f -k {} \;
+    # Cleanup
+    - rm -rf out
+  artifacts:
+    paths:
+      - public
+  only:
+    - master

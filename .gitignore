@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+
+.next
+public/*
+!public/favicon.png
+!public/portrait.jpg
+!public/robots.txt
+!public/fonts
